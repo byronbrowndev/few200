@@ -8,10 +8,6 @@ import { ProductivityComponent } from './features/productivity/productivity.comp
 
 const routes: Routes = [
   {
-    path: 'productivity',
-    component: ProductivityComponent
-  },
-  {
     path: '',
     component: HomeComponent,
     // pathMatch: 'full'
@@ -29,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes/*, { enableTracing: true }*/)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

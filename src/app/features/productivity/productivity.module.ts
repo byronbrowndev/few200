@@ -10,7 +10,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'productivity',
     component: ProductivityComponent,
     children: [
       {
