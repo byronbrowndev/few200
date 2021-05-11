@@ -3,17 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { CounterComponent } from './components/counter/counter.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { TodosComponent } from './components/todos/todos.component';
+// import { TodosComponent } from './features/productivity/components/todos/todos.component';
+import { ProductivityComponent } from './features/productivity/productivity.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent,
-    // pathMatch: 'full'
+    path: 'productivity',
+    component: ProductivityComponent
   },
   {
-    path: 'todos',
-    component: TodosComponent,
+    path: '',
+    component: HomeComponent,
     // pathMatch: 'full'
   },
   {

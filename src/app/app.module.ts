@@ -3,9 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TodosComponent } from './components/todos/todos.component';
-import { TodosListComponent } from './components/todos-list/todos-list.component';
-import { TodosEntryComponent } from './components/todos-entry/todos-entry.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -17,13 +14,11 @@ import { CounterCountByComponent } from './components/counter-count-by/counter-c
 import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './effects/counter.effects';
 import { AppEffects } from './effects/app.effects';
+import { ProductivityModule } from './features/productivity/productivity.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent,
-    TodosListComponent,
-    TodosEntryComponent,
     CounterComponent,
     HomeComponent,
     NotFoundComponent,
@@ -32,6 +27,7 @@ import { AppEffects } from './effects/app.effects';
   ],
   imports: [
     BrowserModule,
+    ProductivityModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
