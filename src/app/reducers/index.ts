@@ -43,3 +43,8 @@ export const selectCounterResetButtonDisabled = createSelector(
   selectCounterCurrentValue,
   b => b === 0
 )
+
+export const selectCounterCountingBy = createSelector(
+  selectCounterBranch,
+  b => b.by
+)
