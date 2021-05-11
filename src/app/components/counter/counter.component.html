@@ -4,5 +4,5 @@
 <button (click)="increment()"
         class="btn btn-sm btn-primary">+</button>
 <button (click)="reset()"
-        [disabled]="(current$ | async) === 0"
+        [disabled]="resetDisabled$ | async"
         class="btn btn-sm btn-primary">reset</button>
