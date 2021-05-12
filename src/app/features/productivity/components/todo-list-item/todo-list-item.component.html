@@ -5,10 +5,15 @@
         class="card-subtitle mb-2 text-muted">This has no project assigned.</h6>
     <h6 *ngIf="todoItem.project"
         class="card-subtitle mb-2 text-muted">This is assigned to the project {{todoItem.project}}</h6>
-    <button *ngIf="!todoItem.project"
-            class="btn btn-link">Assign Project??</button>
-    <button *ngIf="!todoItem.completed"
-            class="btn btn-link">Mark Complete</button>
-    <button class="btn btn-link">Delete This</button>
+    <p *ngIf="!todoItem.saved"
+       class="alert alert-info">Saving your data... hang on!</p>
+    <ng-container *ngIf="todoItem.saved">
+      <button *ngIf="!todoItem.project"
+              class="btn btn-link">Assign Project??</button>
+      <button *ngIf="!todoItem.completed"
+              class="btn btn-link">Mark Complete</button>
+      <button class="btn btn-link">Delete This</button>
+
+    </ng-container>
   </div>
 </div>

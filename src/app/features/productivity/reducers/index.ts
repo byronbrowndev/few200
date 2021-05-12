@@ -5,6 +5,7 @@ import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/s
 import { TodoListItem, TodoListModel, TodoListSummary } from '../models';
 import * as fromTodos from './todos.reducer';
 import * as fromProjects from './projects.reducer'
+import { createEntityAdapter } from '@ngrx/entity';
 
 export interface ProductivityState {
   todos: fromTodos.TodosState,
@@ -41,7 +42,12 @@ const { selectAll: selectProjectEntityArray } = fromProjects.adapter.getSelector
 
 const selectTodoListItems = createSelector(
   selectTodoEntityArray,
-  entities => entities as TodoListItem[]
+  entities => entities.map(entity => {
+    return {
+      ...entity,
+      saved: !entity.id.startsWith('TEMP')
+    } as TodoListItem
+  })
 )
 
 const selectTodoListSummary = createSelector(

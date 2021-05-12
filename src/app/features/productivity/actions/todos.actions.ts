@@ -31,6 +31,16 @@ export const addTodo = createAction(
   })
 );
 
+export const addTodoSucceeded = createAction(
+  '[productivity todos] adding todo succeeded',
+  props<{ payload: TodoEntity, oldId: string }>()
+);
+
+export const addTodoFailed = createAction(
+  '[productivity todos] loading todos failed',
+  props<{ payload: TodoEntity, message: string }>()
+);
+
 interface TodoCreate {
   name: string,
   project: string

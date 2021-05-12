@@ -21,6 +21,13 @@ const initialState = adapter.getInitialState();
 
 const reducerFunction = createReducer(
   initialState,
+  on(actions.addTodoFailed, (state, action) => adapter.removeOne(action.payload.id, state)),
+  on(actions.addTodoSucceeded, (state, action) => adapter.updateOne({
+    id: action.oldId,
+    changes: {
+      id: action.payload.id
+    }
+  }, state)),
   on(actions.addTodo, (state, action) => adapter.addOne(action.payload, state)),
   on(actions.loadTodosSucceeded, (state, action) => adapter.setAll(action.payload, state))
 );

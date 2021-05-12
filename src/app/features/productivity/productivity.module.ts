@@ -15,6 +15,7 @@ import { AppEffects } from './effects/app.effects';
 import { TodoEffects } from './effects/todos.effects';
 import { TodoListSummaryComponent } from './components/todo-list-summary/todo-list-summary.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
   {
@@ -53,7 +54,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature(featureName, reducers),
     EffectsModule.forFeature([AppEffects, TodoEffects]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     ProductivityComponent

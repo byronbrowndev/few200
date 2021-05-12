@@ -16,6 +16,7 @@ export interface TodoListItem {
   description: string;
   project?: string;
   completed: boolean;
+  saved: boolean
 }
 
 
