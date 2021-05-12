@@ -1,1 +1,9 @@
-<p>todos-list works!</p>
+<ng-container *ngFor="let item of model.list">
+  <app-todo-list-item [todoItem]="item"></app-todo-list-item>
+</ng-container>
+
+<div>
+  <p>You have {{ model.summary.totalTodos }} Todos</p>
+  <p>{{ model.summary.complete }} of them are completed</p>
+  <p>{{ model.summary.incomplete }} need done.</p>
+</div>
