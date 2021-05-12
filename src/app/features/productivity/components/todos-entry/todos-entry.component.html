@@ -1,1 +1,26 @@
-<p>todos-entry works!</p>
+<form [formGroup]="form"
+      (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control"
+           formControlName="name"
+           id="name">
+    <div class="alert alert-danger"
+         *ngIf="name.errors && (name.touched || name.dirty)">
+      <p>This is required.</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="project">Project</label>
+    <select id="project"
+            formControlName="project"
+            class="form-control">
+      <option value=""></option>
+      <option *ngFor="let project of projects$ | async">
+        {{ project }}
+      </option>
+    </select>
+  </div>
+  <button type="submit"
+          class="btn btn-primary">Add Todo</button>
+</form>

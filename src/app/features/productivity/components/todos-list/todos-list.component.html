@@ -1,9 +1,5 @@
-<ng-container *ngFor="let item of model.list">
+<ng-container *ngFor="let item of (model$ | async)?.list">
   <app-todo-list-item [todoItem]="item"></app-todo-list-item>
 </ng-container>
 
-<div>
-  <p>You have {{ model.summary.totalTodos }} Todos</p>
-  <p>{{ model.summary.complete }} of them are completed</p>
-  <p>{{ model.summary.incomplete }} need done.</p>
-</div>
+<app-todo-list-summary [summary]="(model$ | async)?.summary"></app-todo-list-summary>
